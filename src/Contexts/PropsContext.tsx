@@ -258,11 +258,11 @@ export interface RtcSettings {
   // /**
   //  * Enable the mic before joining the call. (default: true)
   //  */
-  // enableAudio?: boolean;
+  enableAudio?: boolean;
   // /**
   //  * Enable the camera before joining the call. Only use for initiak(default: true)
   //  */
-  // enableVideo?: boolean;
+  enableVideo?: boolean;
 }
 
 /**
