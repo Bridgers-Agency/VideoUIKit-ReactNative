@@ -24,8 +24,12 @@ const Controls: React.FC<ControlsPropsInterface> = (props) => {
         {rtcProps.role !== ClientRoleType.ClientRoleAudience && (
           <>
             <LocalAudioMute />
-            <LocalVideoMute />
-            <SwitchCamera />
+            {rtcProps.enableVideo ? (
+              <>
+                <LocalVideoMute />
+                <SwitchCamera />
+              </>
+            ) : null}
           </>
         )}
         <EndCall />
