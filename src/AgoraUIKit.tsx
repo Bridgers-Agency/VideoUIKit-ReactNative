@@ -37,7 +37,7 @@ const AgoraUIKitv3: React.FC<PropsInterface> = (props) => {
               <RtmConfigure>
                 {layout === Layout.Grid ? <GridVideo /> : <PinnedVideo />}
                 <LocalControls />
-                <PopUp />
+                {/* <PopUp /> */}
               </RtmConfigure>
             )}
           </LocalUserContext>

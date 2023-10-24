@@ -56,6 +56,7 @@ export type userDataType = {
   rtmId: string;
   rtcId: number;
   username?: string;
+  picture?: string;
   role: clientRoleRaw;
   uikit: {
     platform: string;
@@ -114,6 +115,10 @@ interface rtmContext {
    * RTM usernames
    */
   usernames: Record<string, string>;
+  /**
+   * RTM Pictures
+   */
+  pictures: Record<string, string>;
   /**
    * state to display pop up on remote mute request
    */

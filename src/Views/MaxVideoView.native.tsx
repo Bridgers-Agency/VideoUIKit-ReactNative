@@ -12,6 +12,7 @@ import Username from './Usernames';
 interface MaxViewInterface {
   user: UidInterface;
   fallback?: React.ComponentType;
+  startedDate?: Date | null;
 }
 /**
  * MaxVideoView takes in a user and renders the video
@@ -23,7 +24,7 @@ const MaxVideoView: React.FC<MaxViewInterface> = (props) => {
 
   return (
     <React.Fragment>
-      {!rtcProps.disableRtm && <Username user={props.user} />}
+      {/* !rtcProps.disableRtm && <Username user={props.user} /> */}
       {props.user.uid === 'local' ? (
         props.user.video ? (
           <RtcSurfaceView

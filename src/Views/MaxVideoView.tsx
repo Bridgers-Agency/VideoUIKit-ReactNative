@@ -7,7 +7,7 @@ import {View} from 'react-native';
 
 interface MaxViewInterface {
   user: UidInterface;
-  fallback?: React.ComponentType;
+  fallback?: React.ComponentType<{startedDate?: Date | null}>;
 }
 
 const MaxVideoView: React.FC<MaxViewInterface> = (props) => {

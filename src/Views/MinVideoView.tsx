@@ -30,7 +30,7 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
           <UserVideoWithFallback user={props.user} Fallback={props.Fallback} />
         </TouchableOpacity>
       ) : (
-        <UserVideoWithFallback user={props.user} />
+        <UserVideoWithFallback user={props.user} Fallback={props.Fallback} />
       )}
 
       {overlay && showOverlay ? (
@@ -49,12 +49,11 @@ const MinVideoView: React.FC<MinViewInterface> = (props) => {
               }}
             />
           </TouchableOpacity>
-          <RemoteControls showRemoteSwap={true} user={props.user} />
+          {/* <RemoteControls showRemoteSwap={true} user={props.user} /> */}
         </View>
       ) : (
         <></>
       )}
-      {!rtcProps.disableRtm && <Username user={props.user} />}
     </View>
   );
 };

@@ -21,14 +21,14 @@ const Username: React.FC<{user: UidInterface; style?: React.CSSProperties}> = (
 
 const styles = StyleSheet.create({
   username: {
-    position: 'absolute',
     paddingHorizontal: 6,
     paddingVertical: 2,
-    backgroundColor: '#007bffaa',
+    backgroundColor: '#299CA8',
+    marginTop: 8,
     color: '#fff',
-    margin: 0,
-    bottom: 0,
-    right: 0,
+    fontFamily: 'DMSans-Bold',
+    fontSize: 16,
+    borderRadius: 10,
     zIndex: 1,
   },
 });

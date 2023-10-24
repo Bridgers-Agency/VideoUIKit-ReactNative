@@ -32,7 +32,7 @@ import {ClientRoleType} from 'react-native-agora';
 import RTMEngine from './RTMEngine';
 
 /**
- * React component that contains the RTM logic. It manages the usernames, remote mute requests and provides data to the children components by wrapping them with context providers.
+ * React component that contains the RTM logic. It manages the usernames, pictures, remote mute requests and provides data to the children components by wrapping them with context providers.
  */
 const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
   const rtmEngineRef = useRef<RtmEngine>();
@@ -42,6 +42,7 @@ const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
   // const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
   const [uidMap, setUidMap] = useState<Record<number, string>>({});
   const [usernames, setUsernames] = useState<Record<string, string> | {}>({});
+  const [pictures, setPictures] = useState<Record<string, string> | {}>({});
   const [userDataMap, setUserDataMap] = useState<Object>({});
   const [popUpState, setPopUpState] = useState<popUpStateEnum>(
     popUpStateEnum.closed,
@@ -92,6 +93,9 @@ const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
 
     setUsernames((p) => {
       return {...p, ['local']: rtmProps?.username};
+    });
+    setPictures((p) => {
+      return {...p, ['local']: rtmProps?.picture};
     });
     sendChannelMessage(createUserData());
     setLogin(true);
@@ -177,6 +181,7 @@ const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
       rtmId: String(rtmProps?.uid || rtcUidRef.current),
       rtcId: rtcUidRef.current as number,
       username: rtmProps?.username,
+      picture: rtmProps?.picture,
       role: rtcProps.role === ClientRoleType.ClientRoleAudience ? 1 : 0,
       uikit: {
         platform: Platform.OS,
@@ -253,6 +258,9 @@ const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
     });
     setUsernames((p) => {
       return {...p, [userData.rtcId]: userData.username};
+    });
+    setPictures((p) => {
+      return {...p, [userData.rtcId]: userData?.picture};
     });
     setUserDataMap((p) => {
       return {...p, [userData.rtmId]: userData};
@@ -363,6 +371,7 @@ const RtmConfigure: React.FC<PropsWithChildren> = (props) => {
         rtmClient: rtmEngineRef.current as RtmEngine,
         uidMap,
         usernames,
+        pictures,
         userDataMap,
         popUpState,
         setPopUpState,

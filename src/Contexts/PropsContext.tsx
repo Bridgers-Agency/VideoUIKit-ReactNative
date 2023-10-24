@@ -210,6 +210,7 @@ export interface RtcConnectionData {
    * (optional) URL for token server, manages fetching and updating tokens automatically. Must follow the schema here - https://github.com/AgoraIO-Community/agora-token-service/
    */
   tokenUrl?: string;
+  startedDate?: Date | null;
 }
 
 /**
@@ -269,6 +270,8 @@ export interface RtcSettings {
  * Props object to setup the  RTM SDK connection
  */
 export interface RtmConnectionData {
+  /** Picture for the RTM Client */
+  picture?: string;
   /**
    * Username for the RTM Client, this value can be accessed using the userData object
    */
@@ -371,6 +374,8 @@ export interface ConnectionData
   rtcUid?: number;
   rtmToken?: string;
   rtmUid?: string;
+  startedDate?: Date | null;
+  /** Contains the URI of the current user */
 }
 
 /**

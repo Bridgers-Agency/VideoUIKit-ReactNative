@@ -42,9 +42,9 @@ const Controls: React.FC<ControlsPropsInterface> = (props) => {
                 ...styles.Controls,
                 bottom: styles.Controls.bottom + 70,
               }}>
-              {rtcProps.layout !== Layout.Grid && (
+              {/* {rtcProps.layout !== Layout.Grid && (
                 <RemoteControls user={users[0]} showRemoteSwap={false} />
-              )}
+              )} */}
             </View>
           )}
         </MaxUidConsumer>
