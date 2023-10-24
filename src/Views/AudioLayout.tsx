@@ -11,13 +11,11 @@ const AudioLayout: React.FC<{
   user: UidInterface;
   style?: React.CSSProperties;
   max?: boolean;
-  startedDate?: Date | null;
   showUsername?: boolean;
 }> = (props) => {
   const {pictures, usernames} = useContext(RtmContext);
   const {rtmProps, styleProps} = useContext(PropsContext);
-  const {user, max, startedDate, showUsername} = props;
-  const {dateStr} = useTimer(startedDate);
+  const {user, max, showUsername} = props;
 
   return (
     <View style={styles.container}>
@@ -32,7 +30,6 @@ const AudioLayout: React.FC<{
         )}
         {showUsername ? <Username user={user} /> : null}
       </View>
-      {startedDate ? <Text style={styles.date}>{dateStr}</Text> : null}
     </View>
   );
 };
@@ -60,12 +57,6 @@ const styles = StyleSheet.create({
   bigImage: {
     width: 150,
     height: 150,
-  },
-  date: {
-    color: '#ffffff',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
 });
 
